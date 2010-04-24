@@ -17,8 +17,7 @@ sub main {
     print pod2usage(1);
     return 1;
   } else {
-    my @pod = select_podsection(@ARGV);
-    my $pod = join "\n", @pod ,"";
+    my $pod = select_podsection(@ARGV);
     unless ($opts{u}) {
       my $parser = Pod::Perldoc::ToText->new;
       my $fh = IO::String->new(\$pod);
@@ -35,17 +34,21 @@ sub main {
 
 =head1 NAME
 
-podsection -- select section from Module's POD
+podsection -- select sections from Module's POD
 
 =head1 SYNOPSIS
 
- podsection ModuleName SectionName
+ podsection ModuleName SectionName [SectionName ...]
 
 For example:
 
- podsection Catalyst SYNOPSIS
- podsection Catalyst req
- podsection CGI header
+ podsection Catalyst SYNOPSIS   # as text
+ podsection Catalyst req res    # as text
+ podsection -u Catalyst req res # as plain pod
+
+Don't work with Some module:
+
+ podsection CGI header # doesn't work correctly
 
 =head1 OPTIONS
 
