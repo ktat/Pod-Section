@@ -1,0 +1,31 @@
+---
+abstract: "select specified section from Module's POD"
+author:
+  - 'Ktat <ktat@cpan.org>'
+build_requires:
+  ExtUtils::MakeMaker: 6.42
+  Test::More: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
+distribution_type: module
+generated_by: 'Module::Install version 0.93'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Pod-Section
+no_index:
+  directory:
+    - inc
+    - t
+requires:
+  Getopt::Std: 0
+  IO::String: 0
+  Pod::Abstract: 0
+  Pod::Perldoc: 0
+  Pod::Perldoc::ToPod: 0
+  Pod::Perldoc::ToText: 0
+  Pod::Usage: 0
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.01
