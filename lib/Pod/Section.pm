@@ -127,6 +127,8 @@ Ktat, C<< <ktat at cpan.org> >>
 
 =head1 BUGS
 
+The way to search section is poor. This cannot find section correctory in some module.
+
 Please report any bugs or feature requests to C<bug-pod-section at rt.cpan.org>, or through
 the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Pod-Section>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
