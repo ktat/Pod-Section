@@ -162,9 +162,13 @@ L<http://search.cpan.org/dist/Pod-Section/>
 
 =back
 
-
 =head1 ACKNOWLEDGEMENTS
 
+=head1 SEE ALSO
+
+=head2 Pod::Select
+
+This also select section, but cannot search function/method explanation.
 
 =head1 LICENSE AND COPYRIGHT
 
@@ -175,7 +179,6 @@ under the terms of either: the GNU General Public License as published
 by the Free Software Foundation; or the Artistic License.
 
 See http://dev.perl.org/licenses/ for more information.
-
 
 =cut
 
