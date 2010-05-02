@@ -29,10 +29,10 @@ sub select_podsection {
     @function_node = _try_from_carp(@try);
   } else {
   CHECK: {
-      @function_node = _try_head_item(1, @try) and last;
-      @function_node = _try_head_item(2, @try) and last;
-      @function_node = _try_head(1, @try)      and last;
       @function_node = _try_head(2, @try)      and last;
+      @function_node = _try_head_item(2, @try) and last;
+      @function_node = _try_head_item(1, @try) and last;
+      @function_node = _try_head(1, @try)      and last;
     }
   }
   my @pod;
