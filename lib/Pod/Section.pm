@@ -32,6 +32,10 @@ sub select_podsection {
       @function_node = _try_head(2, @try)      and last;
       @function_node = _try_head_item(2, @try) and last;
       @function_node = _try_head_item(1, @try) and last;
+      @function_node = _try_head(3, @try)      and last;
+      @function_node = _try_head_item(3, @try) and last;
+      @function_node = _try_head(4, @try)      and last;
+      @function_node = _try_head_item(4, @try) and last;
       @function_node = _try_head(1, @try)      and last;
     }
   }
@@ -45,7 +49,10 @@ sub select_podsection {
 
 sub _try_head_item {
   my ($n, $pa, $regexp) = @_;
-  my @nodes = $pa->select($n == 1 ? "/head1/over/item" : "/head1/head2/over/item");
+  my @target;
+  push @target, "/head$_" for 1 .. $n;
+  my $target = join '', @target;
+  my @nodes = $pa->select("$target/over/item");
   my @function_node;
   foreach my $node (@nodes) {
     foreach my $f ($node->param('label')->children) {
@@ -59,7 +66,10 @@ sub _try_head_item {
 
 sub _try_head {
   my ($n, $pa, $regexp) = @_;
-  my @nodes = $pa->select($n == 1 ? '/head1' : '/head1/head2');
+  my @target;
+  push @target, "/head$_" for 1 .. $n;
+  my $target = join '', @target;
+  my @nodes = $pa->select($target);
   my @function_node;
   foreach my $node (@nodes) {
     foreach my $f ($node->param('heading')->children) {
@@ -115,6 +125,17 @@ In scalar context, pod is joined as one scalar.
     my $function_pods = select_podsection($mdoule, @functions);
     my $section_pods = select_podsection($mdoule, @sections);
 
+use podsection on shell
+
+    % podsection Catalyst req res
+    $c->req
+      Returns the current Catalyst::Request object, giving access to
+      information about the current client request (including parameters,
+      cookies, HTTP headers, etc.). See Catalyst::Request.
+    
+    $c->res
+      Returns the current Catalyst::Response object, see there for details.
+
 =head1 EXPORT
 
 =head2 select_podsection
@@ -138,7 +159,7 @@ automatically be notified of progress on your bug as I make changes.
 You can find documentation for this module with the perldoc command.
 
     perldoc Pod::Section
-
+    perldoc podsection
 
 You can also look for information at:
 
