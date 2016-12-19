@@ -117,13 +117,13 @@ our $VERSION = '0.01';
 
     use Pod::Section qw/select_podsection/;
 
-    my @function_pods = select_podsection($mdoule, @functions);
-    my @section_pods = select_podsection($mdoule, @sections);
+    my @function_pods = select_podsection($module, @functions);
+    my @section_pods = select_podsection($module, @sections);
 
 In scalar context, pod is joined as one scalar.
 
-    my $function_pods = select_podsection($mdoule, @functions);
-    my $section_pods = select_podsection($mdoule, @sections);
+    my $function_pods = select_podsection($module, @functions);
+    my $section_pods = select_podsection($module, @sections);
 
 use podsection on shell
 
@@ -148,7 +148,7 @@ Ktat, C<< <ktat at cpan.org> >>
 
 =head1 BUGS
 
-The way to search section is poor. This cannot find section correctory in some module.
+The way to search section is poor. This cannot find section correctly in some modules.
 
 Please report any bugs or feature requests to C<bug-pod-section at rt.cpan.org>, or through
 the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Pod-Section>.  I will be notified, and then you'll
